@@ -6,5 +6,5 @@ if number > 0:
     print("is positive")
 elif number == 0:
     print("is zero")
-else nmuber < 0:
+else:
     print("is negative")
