@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+''' Def. a class : square '''
+
+
 class Square:
     '''Define a class: Square'''
 
