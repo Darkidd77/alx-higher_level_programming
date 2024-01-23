@@ -3,6 +3,7 @@
 
 ''' Square module. program '''
 
+
 class Square:
     ''' Square Define'''
     pass
