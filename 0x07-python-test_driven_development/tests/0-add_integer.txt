@@ -1,0 +1,81 @@
+=======================================
+Usage of add_integer Function
+=======================================
+
+This module introduces a function for integer addition called "add_integer(a, b=98)".
+
+Usage Examples
+===============
+
+The function "add_integer(...)" calculates the sum of its two arguments. For numerical values, this is equivalent to using the "+" operator.
+
+>>> from 0-add_integer import add_integer
+>>> add_integer(2, 3)
+5
+
+>>> add_integer(2, -3)
+-1
+
+The function seamlessly handles floating-point values.
+
+>>> add_integer(2.0, 3.0)
+5
+
+Note that floating-point numbers are casted to integers before addition.
+
+>>> add_integer(2.9, 0.2)
+2
+
+>>> add_integer(-2.9, -0.2)
+-2
+
+It also accommodates a mix of floating and non-floating point values.
+
+>>> add_integer(2.3, -3)
+-1
+
+The second argument is optional, defaulting to 98.
+
+>>> add_integer(2)
+100
+
+Handling Non-numeric Values
+===========================
+
+The function expects both arguments to be either integers or floats. If either argument is neither, a TypeError is raised.
+
+>>> add_integer("hello", 3)
+TypeError: a must be an integer
+
+>>> add_integer(2, "hello")
+TypeError: b must be an integer
+
+>>> add_integer(None)
+TypeError: a must be an integer
+
+>>> add_integer(2.3, None)
+TypeError: b must be an integer
+
+If both arguments are non-numeric, the TypeError message is only displayed for the first argument.
+
+>>> add_integer("hello", "there")
+TypeError: a must be an integer
+
+Handling Infinity and NaN
+=========================
+
+The function will fail if provided with infinity.
+
+>>> add_integer(float('inf'))
+OverflowError: cannot convert float infinity to integer
+
+>>> add_integer(2, float('inf'))
+OverflowError: cannot convert float infinity to integer
+
+Similarly, it fails with NaN values.
+
+>>> add_integer(float('nan'))
+ValueError: cannot convert float NaN to integer
+
+>>> add_integer(2, float('nan'))
+ValueError: cannot convert float NaN to integer
