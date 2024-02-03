@@ -79,3 +79,4 @@ ValueError: cannot convert float NaN to integer
 
 >>> add_integer(2, float('nan'))
 ValueError: cannot convert float NaN to integer
+
