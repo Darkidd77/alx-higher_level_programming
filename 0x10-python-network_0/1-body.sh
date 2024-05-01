@@ -1,3 +1,3 @@
 #!/bin/bash
-response=$(curl -o /tmp/response.txt -w -s "%{http_code}" "$1")
-if [ "$(tail -n1 /tmp/response.txt)" == "200" ]; then cat /tmp/response.txt | sed '$d'
+# GET request to the URL, and displays the body of the response
+curl -sL -o /dev/null -w "%{http_code}\n"  "$1" | grep 200 && curl -s "$1"
