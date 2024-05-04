@@ -1,19 +1,25 @@
 #!/usr/bin/python3
-"""Module lists states from mySQL database"""
-import sys
-import MySQLdb
+"""Showsall states in the database hbtn_0e_0_usa"""
 
-def list_states (username, password, database):
-    """lists states from database.
-    Ags:
-        username: mysql-username
-        password: mysql-password
-        database: mysql-database
-    """
-    # Connect to the MySQL server
-    db = MySQLdb.connect(host='localhost',\
-            port=3306,\
-            user=username,\
-            passwd=password,\
-            db=database)
+if __name__ == '__main__':
+    from sys import argv
+    import MySQLdb as mysql
+
+    try:
+        db = mysql.connect(host='localhost', port=3306, user=argv[1],
+                           passwd=argv[2], db=argv[3])
+    except Exception:
+        print('Failed to connect to the database')
+        exit(0)
+
     cursor = db.cursor()
+
+    cursor.execute("SELECT * FROM states ORDER BY id ASC;")
+
+    result_query = cursor.fetchall()
+
+    for row in result_query:
+        print(row)
+
+    cursor.close()
+    db.close()
