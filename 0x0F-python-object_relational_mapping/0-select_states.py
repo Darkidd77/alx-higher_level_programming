@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Showsall states in the database hbtn_0e_0_usa"""
+"""Lists states from database hbtn_0e_0_usa"""
 
 if __name__ == '__main__':
     from sys import argv
