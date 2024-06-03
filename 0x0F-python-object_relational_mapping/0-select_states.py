@@ -1,7 +1,16 @@
 #!/usr/bin/python3
-"""Module lists states from mySQL database"""
-import sys
-import MySQLdb
+"""Lists states from database hbtn_0e_0_usa"""
+
+if __name__ == '__main__':
+    from sys import argv
+    import MySQLdb as mysql
+
+    try:
+        db = mysql.connect(host='localhost', port=3306, user=argv[1],
+                           passwd=argv[2], db=argv[3])
+    except Exception:
+        print('Failed to connect to the database')
+        exit(0)
 
 
 def list_states(username, password, database):
